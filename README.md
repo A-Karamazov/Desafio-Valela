@@ -1,7 +1,15 @@
-# Desafio-Valela
-criar servidor com BunJS, 
-rota que adicione novos usuários, 
-rota que lista usuários. 
+# adsdafa
 
-apresentar usuários cadastrados em "ul", 
-criar formulário que adiciona novo usuário
+To install dependencies:
+
+```bash
+bun install
+```
+
+To run:
+
+```bash
+bun run index.ts
+```
+
+This project was created using `bun init` in bun v1.3.12. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.

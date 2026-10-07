@@ -8,9 +8,7 @@ const query = db.query(`
         email           TEXT NOT NULL UNIQUE,
         password_hash   TEXT NOT NULL
     );
+`)
+query.run()
 
-    `)
-
-    query.run()
-
-    export { db }
+export { db }

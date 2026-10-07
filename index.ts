@@ -28,10 +28,8 @@ const srv = Bun.serve({
                 }
                 if (!body.username)
                     return Response.json({ message: "Falta da informação: username" }, { status: 400 })
-
                 if (!body.email)
                     return Response.json({ message: "Falta da informação: email" }, { status: 400 })
-
                 if (!body.password)
                     return Response.json({ message: "Falta da informação: password" }, { status: 400 })
 
@@ -39,15 +37,18 @@ const srv = Bun.serve({
                     INSERT INTO users(username, email, password_hash)
                     VALUES(:username, :email, :password_hash)
                 `)
+                
                 try {
+                    
                     const dbResp = query.run({
                         ':username': body.username,
                         ':email': body.email,
                         ':password_hash': body.password
                     })
                     return Response.json({
-                        "message": "deu boa garote!",
+                        "message": "funcionou ebaa!",
                         dbResp
+                        
                     })
                 } catch (e: any) {
                     if (e.code == "SQLITE_CONSTRAINT_UNIQUE") {
@@ -62,7 +63,6 @@ const srv = Bun.serve({
                     }, { status: 500 })
                 }
             },
-
         },
 
         "/user/:id": {
@@ -87,10 +87,8 @@ const srv = Bun.serve({
                 }
                 if (!body.username)
                     return Response.json({ message: "Falta da informação: username" }, { status: 400 })
-
                 if (!body.email)
                     return Response.json({ message: "Falta da informação: email" }, { status: 400 })
-
                 if (!body.password)
                     return Response.json({ message: "Falta da informação: password" }, { status: 400 })
 

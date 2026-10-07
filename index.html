@@ -5,10 +5,8 @@
     <meta charset='utf-8'>
     <title>Lista Usuários</title>
 </head>
-
 <body>
     <h1>Usuários</h1>
-
     <ul class="display"></ul>
 
     <form class="form" action="/user" method="post">
@@ -29,31 +27,24 @@
             });
         }
 
-
-        const form = document.querySelector('.form')
+        const formCadastro = document.querySelector('.form')
         form.addEventListener('submit', async (ev) => {
             ev.preventDefault()
-            const resp = await fetch("/user", {
-                method: "POST",
+            const resp = await fetch("/user", { method: "POST",
                 header: { "content-type": "application/json" },
                 body: JSON.stringify({
-                    "username": form.username.value,
-                    "email": form.email.value,
-                    "password": form.password.value
+                    "username": formCadastro.username.value,
+                    "email": formCadastro.email.value,
+                    "password": formCadastro.password.value
                 })
             })
             if (!resp.ok) {
                 alert("Erro! Provavelmente username ou email são repetidos")
                 return
             }
-
-            form.reset()
-
+            formCadastro.reset()
         })
-
         init()
     </script>
-
 </body>
-
 </html>
